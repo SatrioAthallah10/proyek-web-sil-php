@@ -1,0 +1,17 @@
+{
+    "php.validate.executablePath": "C:/xampp/php/php.exe",
+    "php.executablePath": "C:/xampp/php/php.exe",
+    "files.associations": {
+        "*.php": "php"
+    },
+    "emmet.includeLanguages": {
+        "php": "html"
+    },
+    "php.suggest.basic": false,
+    "liveServer.settings.port": 5500,
+    "liveServer.settings.root": "/",
+    "liveServer.settings.ignoreFiles": [
+        ".vscode/**",
+        "**/*.php"
+    ]
+}

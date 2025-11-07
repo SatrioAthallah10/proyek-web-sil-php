@@ -1,0 +1,424 @@
+/* ==================================
+   GLOBAL STYLES
+===================================== */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==================================
+   SAMUDERA INDAH LESTARI NAVBAR
+===================================== */
+.navbar-wrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+/* BAGIAN ATAS (BIRU) */
+.top-bar {
+  background-color: #0BA6DF;
+  color: white;
+  padding: 10px 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.contact-info,
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.contact-info span,
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.social-links a:hover {
+  opacity: 0.8;
+}
+
+/* BAGIAN BAWAH (DIAGONAL) */
+.bottom-bar {
+  background: linear-gradient(105deg, #E8DFCA 55%, #28a745 55%);
+  padding: 15px 0;
+  height: 70px;
+}
+
+.navbar-logo a {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-logo-img {
+  height: 80px;
+  width: auto;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 35px;
+  align-items: center;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: color 0.3s ease;
+}
+
+.navbar-links a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar-links a.active-link {
+  color: white;
+  border-bottom: 2px solid white;
+}
+
+.search-icon {
+  font-size: 1.3rem;
+  color: white;
+  cursor: pointer;
+}
+
+.menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* ==================================
+   MUTIARA BUNDA NAVBAR
+===================================== */
+.mbe-navbar-wrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.mbe-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.mbe-top-bar {
+  background-color: #0348A3;
+  color: white;
+  padding: 10px 0;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.mbe-contact-info,
+.mbe-social-links {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.mbe-contact-info span,
+.mbe-social-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.mbe-social-links a:hover {
+  opacity: 0.8;
+}
+
+.mbe-bottom-bar {
+  background: linear-gradient(105deg, #B1D6F0 55%, #F03433 55%);
+  padding: 15px 0;
+  height: 70px;
+}
+
+.mbe-navbar-logo a {
+  display: flex;
+  align-items: center;
+}
+
+.mbe-navbar-logo-img {
+  height: 80px;
+  width: auto;
+}
+
+.mbe-navbar-links {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 35px;
+  align-items: center;
+}
+
+.mbe-navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.mbe-navbar-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 5px 0;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+.mbe-navbar-links a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.mbe-navbar-links a.active-link {
+  color: white;
+  border-bottom-color: white;
+}
+
+.mbe-menu-icon {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #333;
+}
+
+/* ==================================
+   HERO SECTION
+===================================== */
+.hero-slider {
+  position: relative;
+  height: 70vh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  z-index: 1;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  color: white;
+  text-align: center;
+  max-width: 800px;
+}
+
+.slider-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-arrow:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.slider-arrow.prev {
+  left: 30px;
+}
+
+.slider-arrow.next {
+  right: 30px;
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: white;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 15px;
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: "Merriweather", serif;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+/* ==================================
+   RESPONSIVE DESIGN
+===================================== */
+@media (max-width: 992px) {
+  .contact-info span:first-child {
+    display: none;
+  }
+  .social-links a {
+    font-size: 0;
+  }
+  .social-links a svg {
+    font-size: 1.2rem;
+  }
+  .bottom-bar {
+    background: #E8DFCA;
+  }
+  
+  .navbar-links a,
+  .search-icon {
+    color: #333;
+  }
+  .navbar-links a.active-link {
+    color: #6D94C5;
+    border-bottom-color: #6D94C5;
+  }
+  .navbar-links a:hover {
+    color: #6D94C5;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-bar, .mbe-top-bar {
+    display: none;
+  }
+  .menu-icon, .mbe-menu-icon {
+    display: block;
+    order: 2;
+  }
+  .search-icon {
+    display: none;
+  }
+  .navbar-links, .mbe-navbar-links {
+    flex-direction: column;
+    position: absolute;
+    top: 100px;
+    left: -100%;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    transition: left 0.3s ease-in-out;
+  }
+  .navbar-links.active, .mbe-navbar-links.active {
+    left: 0;
+  }
+  .navbar-links li, .mbe-navbar-links li {
+    padding: 10px 0;
+  }
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+  .slider-arrow {
+    padding: 10px;
+  }
+}
