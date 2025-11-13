@@ -1,0 +1,112 @@
+/* ==================================
+   THEME: SAMUDERA INDAH LESTARI
+===================================== */
+
+/* --- NAVBAR --- */
+.navbar-wrapper .top-bar {
+  background-color: #0BA6DF;
+  color: white;
+}
+.navbar-wrapper .contact-info span,
+.navbar-wrapper .social-links a {
+  color: white;
+}
+.navbar-wrapper .social-links a:hover {
+  opacity: 0.8;
+}
+.navbar-wrapper .bottom-bar {
+  background: linear-gradient(105deg, #E8DFCA 55%, #28a745 55%);
+}
+.navbar-wrapper .navbar-links a {
+  color: white;
+}
+.navbar-wrapper .navbar-links a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+.navbar-wrapper .navbar-links a.active-link {
+  color: white;
+  border-bottom: 2px solid white;
+}
+.navbar-wrapper .menu-icon {
+  color: #333; /* Warna ikon hamburger di mobile */
+}
+
+/* --- HERO --- */
+.hero-content {
+  color: white;
+}
+
+/* --- MARQUEE --- */
+.marquee-section {
+  background-color: #F5EFE6;
+}
+.location-icon {
+  color: #c00000;
+}
+
+/* --- INFORMATION SECTION --- */
+.information-section {
+  background-color: #F5EFE6;
+}
+.information-section .info-content h2 {
+  color: #0BA6DF;
+}
+.information-section .info-image {
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+}
+.information-section .info-button {
+  background-color: #28a745;
+}
+.information-section .info-button:hover {
+  background-color: #218838;
+}
+
+/* --- FOOTER --- */
+.footer {
+  background-color: #333;
+  color: white;
+}
+.footer-section h3 {
+  color: white;
+}
+.footer-section p, .footer-section a {
+  color: #ccc;
+}
+.footer-section a:hover {
+  color: white;
+}
+.footer-bottom {
+  color: #999;
+}
+.footer-links-bottom a {
+  color: #999;
+}
+.social-icons a {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.social-icons a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- RESPONSIVE OVERRIDES --- */
+@media (max-width: 992px) {
+  .navbar-wrapper .bottom-bar {
+    background: #E8DFCA; /* Warna mobile navbar */
+  }
+  .navbar-wrapper .navbar-links a {
+    color: #333;
+  }
+  .navbar-wrapper .navbar-links a.active-link {
+    color: #0BA6DF; /* Warna link aktif mobile */
+    border-bottom-color: #0BA6DF;
+  }
+  .navbar-wrapper .navbar-links a:hover {
+    color: #0BA6DF;
+  }
+}
+@media (max-width: 768px) {
+  .information-section .info-image {
+    clip-path: none; /* Hapus miring di mobile */
+  }
+}

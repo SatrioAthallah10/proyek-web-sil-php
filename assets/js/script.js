@@ -1,14 +1,11 @@
-// Slider functionality
 let currentSlideIndex = 0;
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 
 function showSlide(index) {
-  // Hide all slides
   slides.forEach(slide => slide.classList.remove('active'));
   dots.forEach(dot => dot.classList.remove('active'));
   
-  // Show current slide
   slides[index].classList.add('active');
   dots[index].classList.add('active');
 }
@@ -30,12 +27,10 @@ function currentSlide(index) {
   showSlide(currentSlideIndex);
 }
 
-// Auto-slide
 setInterval(() => {
   changeSlide(1);
 }, 5000);
 
-// Mobile menu toggle
 function toggleMobileMenu() {
   const navbarLinks = document.getElementById('navbarLinks');
   if (navbarLinks) {
@@ -50,7 +45,6 @@ function toggleMobileMenuMBE() {
   }
 }
 
-// Close mobile menu when clicking outside
 document.addEventListener('click', function(event) {
   const navbarLinks = document.getElementById('navbarLinks');
   const mbeNavbarLinks = document.getElementById('mbeNavbarLinks');
@@ -66,7 +60,6 @@ document.addEventListener('click', function(event) {
   }
 });
 
-// Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -79,95 +72,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ==========================================
-// HORIZONTAL SCROLL FUNCTIONALITY
-// ==========================================
-function scrollCities(direction) {
-  const citiesGrid = document.getElementById('citiesGrid');
-  const scrollAmount = 220; // Width of one card + gap
-  
-  if (direction === 'left') {
-    citiesGrid.scrollBy({
-      left: -scrollAmount,
-      behavior: 'smooth'
-    });
-  } else {
-    citiesGrid.scrollBy({
-      left: scrollAmount,
-      behavior: 'smooth'
-    });
-  }
-  
-  // Update navigation buttons state
-  updateScrollButtons();
-}
-
-function updateScrollButtons() {
-  const citiesGrid = document.getElementById('citiesGrid');
-  const prevBtn = document.getElementById('scrollPrev');
-  const nextBtn = document.getElementById('scrollNext');
-  
-  if (!citiesGrid || !prevBtn || !nextBtn) return;
-  
-  // Check if at start
-  if (citiesGrid.scrollLeft <= 0) {
-    prevBtn.classList.add('disabled');
-  } else {
-    prevBtn.classList.remove('disabled');
-  }
-  
-  // Check if at end
-  if (citiesGrid.scrollLeft >= citiesGrid.scrollWidth - citiesGrid.clientWidth) {
-    nextBtn.classList.add('disabled');
-  } else {
-    nextBtn.classList.remove('disabled');
-  }
-}
-
-// Initialize scroll buttons on page load
-document.addEventListener('DOMContentLoaded', function() {
-  const citiesGrid = document.getElementById('citiesGrid');
-  if (citiesGrid) {
-    citiesGrid.addEventListener('scroll', updateScrollButtons);
-    updateScrollButtons(); // Initial state
-  }
-  
-  // Touch/swipe support for mobile
-  let isDown = false;
-  let startX;
-  let scrollLeft;
-  
-  if (citiesGrid) {
-    citiesGrid.addEventListener('mousedown', (e) => {
-      isDown = true;
-      startX = e.pageX - citiesGrid.offsetLeft;
-      scrollLeft = citiesGrid.scrollLeft;
-      citiesGrid.style.cursor = 'grabbing';
-    });
-    
-    citiesGrid.addEventListener('mouseleave', () => {
-      isDown = false;
-      citiesGrid.style.cursor = 'grab';
-    });
-    
-    citiesGrid.addEventListener('mouseup', () => {
-      isDown = false;
-      citiesGrid.style.cursor = 'grab';
-    });
-    
-    citiesGrid.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - citiesGrid.offsetLeft;
-      const walk = (x - startX) * 2;
-      citiesGrid.scrollLeft = scrollLeft - walk;
-    });
-  }
-});
-
-// ==========================================
-// CITIES FILTER FUNCTIONALITY
-// ==========================================
 function filterCities() {
   const searchInput = document.getElementById('citySearch');
   const citiesGrid = document.getElementById('citiesGrid');
@@ -184,14 +88,10 @@ function filterCities() {
   });
 }
 
-// ==========================================
-// NEWS FILTER FUNCTIONALITY
-// ==========================================
 function filterNews() {
   const searchInput = document.getElementById('newsSearch');
   const searchTerm = searchInput.value.toLowerCase();
   
-  // Since news is empty, this will be used when news is added
   console.log('Filtering news:', searchTerm);
 }
 
@@ -200,7 +100,6 @@ function filterByCategory(category) {
   const emptyState = document.getElementById('emptyState');
   const newsGrid = document.getElementById('newsGrid');
   
-  // Update active tag
   tags.forEach(tag => {
     tag.classList.remove('active');
     if (tag.textContent.toLowerCase().includes(category) || 
@@ -209,7 +108,6 @@ function filterByCategory(category) {
     }
   });
   
-  // Since news is empty, always show empty state
   emptyState.style.display = 'block';
   newsGrid.style.display = 'none';
 }
@@ -218,10 +116,8 @@ function resetFilter() {
   const searchInput = document.getElementById('newsSearch');
   const tags = document.querySelectorAll('.tag');
   
-  // Clear search
   searchInput.value = '';
   
-  // Reset to "Semua" category
   filterByCategory('all');
 }
 
@@ -230,7 +126,6 @@ function filterByCategory(category) {
   const emptyState = document.getElementById('emptyState');
   const newsGrid = document.getElementById('newsGrid');
   
-  // Update active tag
   tags.forEach(tag => {
     tag.classList.remove('active');
     if (tag.textContent.toLowerCase().includes(category) || 
@@ -239,7 +134,6 @@ function filterByCategory(category) {
     }
   });
   
-  // Since news is empty, always show empty state
   emptyState.style.display = 'block';
   newsGrid.style.display = 'none';
 }
@@ -248,30 +142,23 @@ function resetFilter() {
   const searchInput = document.getElementById('newsSearch');
   const tags = document.querySelectorAll('.tag');
   
-  // Clear search
   searchInput.value = '';
   
-  // Reset to "Semua" category
   filterByCategory('all');
 }
 
-// ==========================================
-// CITY CARD CLICK HANDLER
-// ==========================================
 document.addEventListener('DOMContentLoaded', function() {
   const cityCards = document.querySelectorAll('.city-card');
   cityCards.forEach(card => {
     card.addEventListener('click', function() {
       const cityName = this.querySelector('.city-name').textContent;
       
-      // Create form data for pesan-layanan
       const form = document.createElement('form');
       form.method = 'POST';
       form.action = window.location.href.includes('mutiara-bunda') ? 
         'index.php?company=mutiara-bunda&page=pesan-layanan' : 
         'index.php?page=pesan-layanan';
       
-      // Add city as hidden input
       const cityInput = document.createElement('input');
       cityInput.type = 'hidden';
       cityInput.name = 'kota_tujuan';
@@ -284,9 +171,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// ==========================================
-// WHATSAPP CLICK HANDLER
-// ==========================================
 document.addEventListener('DOMContentLoaded', function() {
   const whatsappIcons = document.querySelectorAll('.whatsapp-icon');
   whatsappIcons.forEach(icon => {
@@ -298,9 +182,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// ==========================================
-// FORM VALIDATION
-// ==========================================
 document.addEventListener('DOMContentLoaded', function() {
   const forms = document.querySelectorAll('.contact-form');
   forms.forEach(form => {
@@ -313,7 +194,6 @@ document.addEventListener('DOMContentLoaded', function() {
           isValid = false;
           field.style.borderColor = 'red';
           
-          // Remove red border after 3 seconds
           setTimeout(() => {
             field.style.borderColor = '';
           }, 3000);
@@ -328,7 +208,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 });
 
-// Add some CSS for additional components
 const additionalCSS = `
 .info-button {
   display: inline-block;
@@ -434,17 +313,7 @@ const additionalCSS = `
   color: #ccc;
 }
 
-/* Responsive for new components */
 @media (max-width: 768px) {
-  .cities-grid {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-  }
-  
-  .city-card {
-    padding: 15px 10px;
-  }
-  
   .category-tags {
     gap: 10px;
   }
@@ -473,7 +342,6 @@ const additionalCSS = `
 }
 `;
 
-// Create and append additional CSS
 const style = document.createElement('style');
 style.textContent = additionalCSS;
 document.head.appendChild(style);

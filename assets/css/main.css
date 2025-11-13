@@ -1,0 +1,107 @@
+/* ==================================
+   GLOBAL STYLES
+   (Pengganti style.css)
+===================================== */
+body {
+  margin: 0;
+  font-family: 'Merriweather Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* Definisi .container global 
+  (dipindahkan dari style.css)
+*/
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+/* Definisi .mbe-container global 
+  (dipindahkan dari style.css)
+*/
+.mbe-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+/* Page Section Global
+  (dipindahkan dari components.css)
+*/
+.page-section {
+  padding: 80px 0;
+  background-color: #f8f9fa; /* Default background */
+  min-height: 60vh;
+}
+
+.page-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: block; /* Override flex dari .container global */
+  height: auto;
+}
+
+.page-section h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 15px;
+  font-family: "Merriweather", serif;
+}
+
+.page-section p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+/* Form Global Styles */
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.95rem;
+  font-family: "Merriweather Sans", sans-serif;
+  transition: border-color 0.3s ease;
+}
+
+/* ==================================
+   RESPONSIVE GLOBAL
+===================================== */
+@media (max-width: 768px) {
+  .page-section h1 {
+    font-size: 2rem;
+  }
+}

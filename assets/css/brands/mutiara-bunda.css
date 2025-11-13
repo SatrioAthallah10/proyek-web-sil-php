@@ -1,0 +1,114 @@
+/* ==================================
+   THEME: MUTIARA BUNDA EXPRESS
+===================================== */
+
+/* --- NAVBAR --- */
+.mbe-navbar-wrapper .mbe-top-bar {
+  background-color: #0348A3;
+  color: white;
+}
+.mbe-navbar-wrapper .mbe-contact-info span,
+.mbe-navbar-wrapper .mbe-social-links a {
+  color: white;
+}
+.mbe-navbar-wrapper .mbe-social-links a:hover {
+  opacity: 0.8;
+}
+.mbe-navbar-wrapper .mbe-bottom-bar {
+  background: linear-gradient(105deg, #B1D6F0 55%, #F03433 55%);
+}
+.mbe-navbar-wrapper .mbe-navbar-links a {
+  color: white;
+}
+.mbe-navbar-wrapper .mbe-navbar-links a:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+.mbe-navbar-wrapper .mbe-navbar-links a.active-link {
+  color: white;
+  border-bottom-color: white;
+}
+.mbe-navbar-wrapper .mbe-menu-icon {
+  color: #333; /* Warna ikon hamburger di mobile */
+}
+
+
+/* --- HERO --- */
+.hero-content {
+  color: white;
+}
+
+/* --- MARQUEE --- */
+.mbe-marquee-section {
+  background-color: #B1D6F0;
+}
+.mbe-location-icon {
+  color: #F03433;
+}
+
+/* --- INFORMATION SECTION --- */
+.mbe-information-section {
+  background-color: #B1D6F0;
+}
+.mbe-information-section .info-content h2 {
+  color: #0348A3;
+}
+.mbe-information-section .info-image {
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
+}
+.mbe-information-section .info-button {
+  background-color: #F03433; /* Warna tombol Mutiara */
+}
+.mbe-information-section .info-button:hover {
+  background-color: #d92b2a; /* Hover Mutiara */
+}
+
+/* --- FOOTER --- */
+.footer {
+  background-color: #333; /* Footer Mutiara sama */
+  color: white;
+}
+.footer-section h3 {
+  color: white;
+}
+.footer-section p, .footer-section a {
+  color: #ccc;
+}
+.footer-section a:hover {
+  color: white;
+}
+.footer-bottom {
+  color: #999;
+}
+.footer-links-bottom a {
+  color: #999;
+}
+.social-icons a {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.social-icons a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* --- RESPONSIVE OVERRIDES --- */
+@media (max-width: 992px) {
+  /* Override jika diperlukan untuk Mutiara Bunda */
+  .mbe-navbar-wrapper .mbe-bottom-bar {
+    background: #B1D6F0;
+  }
+  .mbe-navbar-wrapper .mbe-navbar-links a {
+    color: #333;
+  }
+  .mbe-navbar-wrapper .mbe-navbar-links a.active-link {
+    color: #0348A3;
+    border-bottom-color: #0348A3;
+  }
+  .mbe-navbar-wrapper .mbe-navbar-links a:hover {
+    color: #0348A3;
+  }
+}
+@media (max-width: 768px) {
+  .mbe-information-section .info-image {
+    clip-path: none; /* Hapus miring di mobile */
+  }
+}

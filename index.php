@@ -123,9 +123,21 @@ if ($company === 'mutiara-bunda') {
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- CSS REFAKTOR -->
+    <!-- 1. Global / Base -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- 2. Struktur / Layout -->
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <!-- 3. Komponen (Struktur) -->
     <link rel="stylesheet" href="assets/css/components.css">
+
+    <?php
+    if ($company === 'mutiara-bunda') {
+        echo '<link rel="stylesheet" href="assets/css/brands/mutiara-bunda.css">';
+    } else {
+        echo '<link rel="stylesheet" href="assets/css/brands/samudera.css">';
+    }
+    ?>
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">

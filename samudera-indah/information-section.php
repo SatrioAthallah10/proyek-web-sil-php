@@ -1,9 +1,8 @@
 <section class="information-section">
   <div class="info-container">
-    <!-- Sisi Gambar -->
-    <div class="info-image" style="background-image: url('assets/images/info_section.jpg')"></div>
-    
-    <!-- Sisi Teks -->
+    <div class="info-image-wrapper">
+      <img src="assets/images/info_section.jpg" alt="Tim logistik profesional Samudera Indah Lestari" class="info-image">
+    </div>
     <div class="info-content">
       <h2>Mengapa Memilih Samudera Indah Lestari?</h2>
       <p>

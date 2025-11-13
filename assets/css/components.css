@@ -1,8 +1,8 @@
 /* ==================================
-   MARQUEE SECTION
+   MARQUEE SECTION (STRUKTUR)
 ===================================== */
-.marquee-section {
-  background-color: #F5EFE6;
+.marquee-section,
+.mbe-marquee-section {
   padding: 15px 0;
   overflow: hidden;
   white-space: nowrap;
@@ -10,40 +10,7 @@
   border-bottom: 1px solid #e0e0e0;
 }
 
-.marquee-content {
-  display: inline-block;
-  padding-left: 100%;
-  animation: marquee-animation 25s linear infinite;
-  display: flex;
-  align-items: center;
-}
-
-.location-icon {
-  color: #c00000;
-  margin-right: 15px;
-  font-size: 1.2rem;
-}
-
-.marquee-text {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #333;
-  font-family: "Merriweather", serif;
-}
-
-/* ==================================
-   MUTIARA BUNDA MARQUEE SECTION
-===================================== */
-.mbe-marquee-section {
-  background-color: #B1D6F0;
-  padding: 15px 0;
-  overflow: hidden;
-  white-space: nowrap;
-  border-top: 1px solid #a1c6e0;
-  border-bottom: 1px solid #a1c6e0;
-}
-
+.marquee-content,
 .mbe-marquee-content {
   display: inline-block;
   padding-left: 100%;
@@ -52,12 +19,13 @@
   align-items: center;
 }
 
+.location-icon,
 .mbe-location-icon {
-  color: #F03433;
   margin-right: 15px;
   font-size: 1.2rem;
 }
 
+.marquee-text,
 .mbe-marquee-text {
   margin: 0;
   font-size: 1rem;
@@ -76,11 +44,11 @@
 }
 
 /* ==================================
-   INFORMATION SECTION
+   INFORMATION SECTION (STRUKTUR)
 ===================================== */
-.information-section {
+.information-section,
+.mbe-information-section {
   padding: 80px 0;
-  background-color: #f8f9fa;
 }
 
 .info-container {
@@ -96,7 +64,6 @@
 .info-content h2 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #333;
   margin-bottom: 20px;
   font-family: "Merriweather", serif;
 }
@@ -111,16 +78,16 @@
 
 .info-image {
   width: 100%;
-  height: 400px;
+  height: 450px;
   background-size: cover;
   background-position: center;
-  border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .info-button {
   display: inline-block;
-  background-color: #28a745;
+  /* Warna default, bisa dioverride oleh brand */
+  background-color: #28a745; 
   color: white;
   padding: 12px 24px;
   text-decoration: none;
@@ -131,12 +98,11 @@
 }
 
 .info-button:hover {
-  background-color: #218838;
-  color: white;
+  background-color: #218838; /* Default hover */
 }
 
 /* ==================================
-   CITIES GRID (LAYANAN PAGE) - HORIZONTAL SCROLL
+   CITIES GRID (LAYANAN PAGE)
 ===================================== */
 .search-container {
   position: relative;
@@ -156,7 +122,7 @@
 
 .search-container input:focus {
   outline: none;
-  border-color: #28a745;
+  border-color: #28a745; /* Default focus color */
 }
 
 .search-icon {
@@ -175,21 +141,12 @@
   margin-top: 40px;
   padding: 20px 0;
   scroll-behavior: smooth;
-  /* Hide scrollbar untuk tampilan lebih clean */
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
 .cities-grid::-webkit-scrollbar {
   display: none;
-}
-
-.cities-grid::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.cities-grid::-webkit-scrollbar-thumb {
-  background: transparent;
 }
 
 .city-card {
@@ -206,6 +163,7 @@
   flex-shrink: 0;
 }
 
+/* Default hover state */
 .city-card:hover {
   background-color: #e8f5e8;
   border-color: #28a745;
@@ -214,7 +172,7 @@
 }
 
 .city-icon {
-  color: #28a745;
+  color: #28a745; /* Default icon color */
   font-size: 1.2rem;
   flex-shrink: 0;
 }
@@ -229,7 +187,6 @@
   text-overflow: ellipsis;
 }
 
-/* Navigation arrows untuk horizontal scroll */
 .cities-container {
   position: relative;
 }
@@ -238,7 +195,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #28a745;
+  background-color: #28a745; /* Default nav color */
   color: white;
   border: none;
   width: 40px;
@@ -254,8 +211,7 @@
 }
 
 .scroll-nav:hover {
-  background-color: #218838;
-  transform: translateY(-50%) scale(1.1);
+  background-color: #218838; /* Default hover */
 }
 
 .scroll-nav.prev {
@@ -269,11 +225,6 @@
 .scroll-nav.disabled {
   opacity: 0.3;
   cursor: not-allowed;
-}
-
-.scroll-nav.disabled:hover {
-  transform: translateY(-50%);
-  background-color: #28a745;
 }
 
 /* ==================================
@@ -300,6 +251,7 @@
   font-family: "Merriweather Sans", sans-serif;
 }
 
+/* Default hover/active state */
 .tag:hover {
   background-color: #e8f5e8;
   border-color: #28a745;
@@ -339,7 +291,7 @@
 }
 
 .reset-btn {
-  background-color: #28a745;
+  background-color: #28a745; /* Default button color */
   color: white;
   border: none;
   padding: 12px 30px;
@@ -395,7 +347,7 @@
 
 .map-icon {
   font-size: 3rem;
-  color: #28a745;
+  color: #28a745; /* Default color */
   margin-bottom: 15px;
 }
 
@@ -438,7 +390,7 @@
 }
 
 .contact-item:hover {
-  background-color: #e8f5e8;
+  background-color: #e8f5e8; /* Default hover */
 }
 
 .whatsapp-icon {
@@ -466,6 +418,7 @@
   font-weight: 600;
   font-family: "Merriweather Sans", sans-serif;
 }
+
 .destinations-section {
   padding: 80px 0;
   background-color: #ffffff;
@@ -563,85 +516,6 @@
 }
 
 /* ==================================
-   FOOTER
-===================================== */
-.footer {
-  background-color: #333;
-  color: white;
-  padding: 50px 0 20px;
-}
-
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.footer-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  margin-bottom: 30px;
-}
-
-.footer-section h3 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin-bottom: 20px;
-  font-family: "Merriweather Sans", sans-serif;
-}
-
-.footer-section p, .footer-section a {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: #ccc;
-  text-decoration: none;
-  font-family: "Merriweather Sans", sans-serif;
-}
-
-.footer-section a:hover {
-  color: white;
-}
-
-.footer-bottom {
-  text-align: center;
-  padding-top: 20px;
-  border-top: 1px solid #555;
-  font-size: 0.9rem;
-  color: #999;
-}
-
-/* ==================================
-   PAGE SECTION STYLES
-===================================== */
-.page-section {
-  padding: 80px 0;
-  background-color: #f8f9fa;
-  min-height: 60vh;
-}
-
-.page-section .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.page-section h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #333;
-  margin-bottom: 15px;
-  font-family: "Merriweather", serif;
-}
-
-.page-section p {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 40px;
-  font-family: "Merriweather Sans", sans-serif;
-}
-
-/* ==================================
    SERVICES GRID
 ===================================== */
 .services-grid {
@@ -666,7 +540,7 @@
 
 .service-icon {
   font-size: 3rem;
-  color: #28a745;
+  color: #28a745; /* Default color */
   margin-bottom: 20px;
 }
 
@@ -724,7 +598,7 @@
 }
 
 .news-date {
-  color: #28a745;
+  color: #28a745; /* Default color */
   font-size: 0.9rem;
   font-weight: 600;
   font-family: "Merriweather Sans", sans-serif;
@@ -747,7 +621,7 @@
 }
 
 .read-more {
-  color: #28a745;
+  color: #28a745; /* Default color */
   text-decoration: none;
   font-weight: 600;
   font-size: 0.9rem;
@@ -759,93 +633,10 @@
 }
 
 /* ==================================
-   CONTACT GRID & FORM
+   FORM (SUDAH GLOBAL DI main.css)
 ===================================== */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  margin-top: 50px;
-}
-
-.contact-info h3, .contact-form h3 {
-  font-size: 1.8rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 30px;
-  font-family: "Merriweather Sans", sans-serif;
-}
-
-.contact-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  margin-bottom: 30px;
-}
-
-.contact-item i {
-  font-size: 1.5rem;
-  color: #28a745;
-  margin-top: 5px;
-}
-
-.contact-item h4 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 5px;
-  font-family: "Merriweather Sans", sans-serif;
-}
-
-.contact-item p {
-  font-size: 0.95rem;
-  color: #666;
-  line-height: 1.6;
-  margin: 0;
-  font-family: "Merriweather Sans", sans-serif;
-}
-
-.contact-form {
-  background: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-  margin-bottom: 25px;
-}
-
-.form-group label {
-  display: block;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 8px;
-  font-family: "Merriweather Sans", sans-serif;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 0.95rem;
-  font-family: "Merriweather Sans", sans-serif;
-  transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: #28a745;
-}
-
 .submit-btn {
-  background-color: #28a745;
+  background-color: #28a745; /* Default color */
   color: white;
   padding: 12px 30px;
   border: none;
@@ -862,7 +653,7 @@
 }
 
 /* ==================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (KOMPONEN)
 ===================================== */
 @media (max-width: 768px) {
   .info-container {
@@ -870,6 +661,13 @@
     gap: 40px;
   }
   
+  .info-image,
+  .mbe-information-section .info-image {
+    clip-path: none; 
+    height: 300px; 
+    border-radius: 10px; 
+  }
+
   .info-content h2 {
     font-size: 2rem;
   }
@@ -886,10 +684,6 @@
     gap: 30px;
   }
   
-  .page-section h1 {
-    font-size: 2rem;
-  }
-  
   .services-grid {
     grid-template-columns: 1fr;
   }
@@ -898,7 +692,6 @@
     grid-template-columns: 1fr;
   }
   
-  /* Horizontal Scroll Mobile Responsive */
   .cities-grid {
     gap: 15px;
     padding: 15px 0;
@@ -946,15 +739,5 @@
   
   .map-icon {
     font-size: 2rem;
-  }
-}
-  
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .contact-form {
-    padding: 30px 20px;
   }
 }
