@@ -88,63 +88,69 @@ function filterCities() {
   });
 }
 
-function filterNews() {
+let activeCategory = 'all';
+
+function updateNewsView() {
   const searchInput = document.getElementById('newsSearch');
+  const newsGrid = document.getElementById('newsGrid');
+  const emptyState = document.getElementById('emptyState');
+  
+  if (!newsGrid || !emptyState || !searchInput) return; 
+
   const searchTerm = searchInput.value.toLowerCase();
-  
-  console.log('Filtering news:', searchTerm);
-}
+  const allCards = newsGrid.querySelectorAll('.news-card');
+  let visibleCount = 0;
 
-function filterByCategory(category) {
-  const tags = document.querySelectorAll('.tag');
-  const emptyState = document.getElementById('emptyState');
-  const newsGrid = document.getElementById('newsGrid');
-  
-  tags.forEach(tag => {
-    tag.classList.remove('active');
-    if (tag.textContent.toLowerCase().includes(category) || 
-        (category === 'all' && tag.textContent === 'Semua')) {
-      tag.classList.add('active');
+  allCards.forEach(card => {
+    const title = card.querySelector('h3').textContent.toLowerCase();
+    const description = card.querySelector('p').textContent.toLowerCase();
+    const category = card.dataset.category;
+
+    const categoryMatch = (activeCategory === 'all' || category === activeCategory);
+    const searchMatch = (title.includes(searchTerm) || description.includes(searchTerm));
+
+    if (categoryMatch && searchMatch) {
+      card.style.display = 'block';
+      visibleCount++;
+    } else {
+      card.style.display = 'none';
     }
   });
-  
-  emptyState.style.display = 'block';
-  newsGrid.style.display = 'none';
+
+  if (visibleCount > 0) {
+    emptyState.style.display = 'none';
+  } else {
+    emptyState.style.display = 'block';
+  }
+}
+
+function filterNews() {
+  updateNewsView();
+}
+
+function filterByCategory(category, element) {
+  activeCategory = category;
+
+  const tags = document.querySelectorAll('.tag');
+  tags.forEach(tag => tag.classList.remove('active'));
+  element.classList.add('active');
+
+  updateNewsView();
 }
 
 function resetFilter() {
   const searchInput = document.getElementById('newsSearch');
-  const tags = document.querySelectorAll('.tag');
-  
-  searchInput.value = '';
-  
-  filterByCategory('all');
-}
+  if (searchInput) {
+    searchInput.value = '';
+  }
 
-function filterByCategory(category) {
-  const tags = document.querySelectorAll('.tag');
-  const emptyState = document.getElementById('emptyState');
-  const newsGrid = document.getElementById('newsGrid');
-  
-  tags.forEach(tag => {
-    tag.classList.remove('active');
-    if (tag.textContent.toLowerCase().includes(category) || 
-        (category === 'all' && tag.textContent === 'Semua')) {
-      tag.classList.add('active');
-    }
-  });
-  
-  emptyState.style.display = 'block';
-  newsGrid.style.display = 'none';
-}
-
-function resetFilter() {
-  const searchInput = document.getElementById('newsSearch');
-  const tags = document.querySelectorAll('.tag');
-  
-  searchInput.value = '';
-  
-  filterByCategory('all');
+  const allTag = document.querySelector('.tag[onclick*="\'all\'"]');
+  if (allTag) {
+    allTag.click();
+  } else {
+    activeCategory = 'all';
+    updateNewsView();
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -169,9 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
       form.submit();
     });
   });
-});
 
-document.addEventListener('DOMContentLoaded', function() {
   const whatsappIcons = document.querySelectorAll('.whatsapp-icon');
   whatsappIcons.forEach(icon => {
     icon.addEventListener('click', function() {
@@ -180,9 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
       window.open(whatsappUrl, '_blank');
     });
   });
-});
 
-document.addEventListener('DOMContentLoaded', function() {
   const forms = document.querySelectorAll('.contact-form');
   forms.forEach(form => {
     form.addEventListener('submit', function(e) {
@@ -206,6 +208,10 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  if (document.getElementById('newsGrid')) {
+    updateNewsView();
+  }
 });
 
 const additionalCSS = `

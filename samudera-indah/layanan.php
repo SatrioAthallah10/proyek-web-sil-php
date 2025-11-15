@@ -1,3 +1,24 @@
+<?php
+// (BARU) Daftar kota lengkap
+$service_areas = [
+  'Balikpapan', 'Samarinda', 'Panajam', 'Berau', 'Nunukan', 'Sendawar', 
+  'Tenggarong', 'Sanggata', 'Tanah Grogot', 'Bontang', 'Banjarmasin', 
+  'Watampone', 'Enrekang', 'Banggae', 'Mamuju', 'Polewali', 
+  'Kolaka', 'Manado', 'Gorontalo', 'Luwuk', 'Taliabu', 'Palu', 'Kendari', 
+  'Makassar', 'Konawe', 'Muna', 'Baubau', 'Jeneponto', 'Sorong', 
+  'Manokwari', 'Merauke', 'Timika', 'Jayapura', 'Kaimana', 'Biak', 
+  'Tarakan', 'Kutai Kartanegara', 'Bulukumba', 'Minahasa', 'Nabire',
+  'Lampung', 'Palembang', 'Jambi', 'Pekan Baru', 'Medan', 'Aceh', 
+  'Tanjung Pinang', 'Batam', 'Denpasar', 'Lombok', 'Sumbawa', 'Bima', 
+  'Labuan Bajo', 'Ruteng', 'Bajawa', 'Ende', 'Maumere', 'Larantuka', 
+  'Waingapu', 'Waikelo', 'Waikabubak', 'Atambua', 'Kupang', 'Soe', 
+  'Kefa', 'Kalabahi', 'Ternate', 'Tidore', 'Sofifi', 'Jailolo', 'Weda', 
+  'Maba', 'Merotai', 'Tanjung Balai Karimun', 'Natuna', 'Bintan', 'Ambon', 
+  'Masohi', 'Saumlaki', 'Bacan'
+];
+// (BARU) Mengurutkan kota berdasarkan abjad
+sort($service_areas);
+?>
 <section class="page-section">
   <div class="container">
     <div class="layanan-header-centered">
@@ -11,81 +32,16 @@
     </div>
     
     <div class="cities-grid" id="citiesGrid">
-      <div class="city-card">
-        <div class="city-icon-wrapper">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <span class="city-name">Aceh</span>
-      </div>
-      <div class="city-card">
-        <div class="city-icon-wrapper">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <span class="city-name">Ambon</span>
-      </div>
-      <div class="city-card">
-        <div class="city-icon-wrapper">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <span class="city-name">Atambua</span>
-      </div>
       
+      <?php foreach ($service_areas as $city): ?>
       <div class="city-card">
         <div class="city-icon-wrapper">
           <i class="fas fa-map-marker-alt"></i>
         </div>
-        <span class="city-name">Bacan</span>
+        <span class="city-name"><?php echo htmlspecialchars($city); ?></span>
       </div>
-      <div class="city-card">
-        <div class="city-icon-wrapper">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <span class="city-name">Bajawa</span>
-      </div>
-      <div class="city-card">
-        <div class="city-icon-wrapper">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <span class="city-name">Balikpapan</span>
-      </div>
-      
-      <div class="city-card">
-        <div class="city-icon-wrapper">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <span class="city-name">Banggai</span>
-      </div>
-      <div class="city-card">
-        <div class="city-icon-wrapper">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <span class="city-name">Banjarmasin</span>
-      </div>
-      <div class="city-card">
-        <div class="city-icon-wrapper">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <span class="city-name">Batam</span>
-      </div>
-      
-      <div class="city-card">
-        <div class="city-icon-wrapper">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <span class="city-name">Baubau</span>
-      </div>
-      <div class="city-card">
-        <div class="city-icon-wrapper">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <span class="city-name">Berau</span>
-      </div>
-      <div class="city-card">
-        <div class="city-icon-wrapper">
-          <i class="fas fa-map-marker-alt"></i>
-        </div>
-        <span class="city-name">Biak</span>
-      </div>
+      <?php endforeach; ?>
+
     </div>
   </div>
 </section>

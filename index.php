@@ -13,6 +13,14 @@ switch($company) {
         $company = 'samudera';
 }
 
+// (BARU) Sertakan data artikel
+// Pastikan file ini ada di folder 'data/articles.php'
+if (file_exists('data/articles.php')) {
+    include 'data/articles.php';
+} else {
+    $articles_data = []; // Pengaman jika file tidak ada
+}
+
 // Include file yang sesuai
 switch($page) {
     case 'layanan':
@@ -24,6 +32,32 @@ switch($page) {
     case 'news':
         $content_file = $base_path . 'news.php';
         break;
+
+    // (BARU) Tambahkan case untuk artikel
+    case 'article':
+        $content_file = 'pages/single-article.php';
+        
+        // Ambil slug dari URL
+        $slug = isset($_GET['slug']) ? $_GET['slug'] : '';
+        
+        // Cari artikel di data kita
+        if (isset($articles_data[$slug])) {
+            $article = $articles_data[$slug];
+            
+            // ATUR SEO TAGS DINAMIS UNTUK ARTIKEL INI
+            $pageTitle = $article['title'];
+            $pageDescription = $article['description'];
+            $pageKeywords = $article['keywords'];
+            $ogImage = $article['image']; // Gunakan gambar artikel untuk OG Image
+            
+        } else {
+            // Jika slug tidak ditemukan, atur judul error
+            $pageTitle = 'Artikel Tidak Ditemukan';
+            $pageDescription = 'Artikel yang Anda cari tidak tersedia.';
+            $article = null; // Pastikan variabel $article ada
+        }
+        break;
+        
     case 'kontak':
         $content_file = $base_path . 'kontak.php';
         break;
@@ -48,6 +82,8 @@ $pageDescription = 'Solusi logistik terintegrasi untuk masa depan bisnis Anda. P
 $pageKeywords = 'logistik, pengiriman, kargo, samudera indah lestari, transportasi, distribusi';
 $ogImage = 'assets/images/hero_section.png';
 
+// (PERUBAHAN) Pindahkan switch SEO ke bawah
+// agar case 'article' bisa menimpanya (override)
 switch($page) {
     case 'layanan':
         $pageTitle = 'Layanan Kami - Area Jangkauan Pengiriman';
@@ -63,6 +99,16 @@ switch($page) {
         $pageTitle = 'Kontak Kami - Hubungi Samudera Indah Lestari';
         $pageDescription = 'Hubungi kami untuk informasi lebih lanjut tentang layanan pengiriman dan logistik.';
         $pageKeywords = 'kontak, hubungi, alamat, telepon, email';
+        break;
+    case 'article':
+        // (BARU) Biarkan kosong, karena SEO sudah diatur di switch router utama
+        // Kita hanya perlu memastikan $article sudah diset
+        if (isset($article)) {
+             $pageTitle = $article['title'];
+             $pageDescription = $article['description'];
+             $pageKeywords = $article['keywords'];
+             $ogImage = $article['image'];
+        }
         break;
 }
 

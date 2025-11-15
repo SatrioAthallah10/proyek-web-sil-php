@@ -1,7 +1,31 @@
+<?php
+// (BARU) Daftar kota lengkap
+$service_areas = [
+  'Balikpapan', 'Samarinda', 'Panajam', 'Berau', 'Nunukan', 'Sendawar', 
+  'Tenggarong', 'Sanggata', 'Tanah Grogot', 'Bontang', 'Banjarmasin', 
+  'Watampone', 'Enrekang', 'Banggae', 'Mamuju', 'Polewali', 
+  'Kolaka', 'Manado', 'Gorontalo', 'Luwuk', 'Taliabu', 'Palu', 'Kendari', 
+  'Makassar', 'Konawe', 'Muna', 'Baubau', 'Jeneponto', 'Sorong', 
+  'Manokwari', 'Merauke', 'Timika', 'Jayapura', 'Kaimana', 'Biak', 
+  'Tarakan', 'Kutai Kartanegara', 'Bulukumba', 'Minahasa', 'Nabire',
+  'Lampung', 'Palembang', 'Jambi', 'Pekan Baru', 'Medan', 'Aceh', 
+  'Tanjung Pinang', 'Batam', 'Denpasar', 'Lombok', 'Sumbawa', 'Bima', 
+  'Labuan Bajo', 'Ruteng', 'Bajawa', 'Ende', 'Maumere', 'Larantuka', 
+  'Waingapu', 'Waikelo', 'Waikabubak', 'Atambua', 'Kupang', 'Soe', 
+  'Kefa', 'Kalabahi', 'Ternate', 'Tidore', 'Sofifi', 'Jailolo', 'Weda', 
+  'Maba', 'Merotai', 'Tanjung Balai Karimun', 'Natuna', 'Bintan', 'Ambon', 
+  'Masohi', 'Saumlaki', 'Bacan'
+];
+// (BARU) Mengurutkan kota berdasarkan abjad
+sort($service_areas);
+?>
 <section class="page-section">
   <div class="container">
-    <h1>Area Jangkauan Layanan Kami</h1>
-    <p>Kami menjangkau kota - kota besar dan daerah terpencil di seluruh nusantara untuk memastikan distribusi Anda berjalan lancar.</p>
+    <!-- (DIUPDATE) Menyamakan struktur dengan Samudera Indah -->
+    <div class="layanan-header-centered">
+      <h1>Area Jangkauan Layanan Kami</h1>
+      <p>Kami menjangkau kota - kota besar dan daerah terpencil di seluruh nusantara untuk memastikan distribusi Anda berjalan lancar.</p>
+    </div>
     
     <!-- Search Box -->
     <div class="search-container">
@@ -9,162 +33,19 @@
       <i class="fas fa-search search-icon"></i>
     </div>
     
-    <!-- Cities Container dengan Navigation -->
-    <div class="cities-container">
-      <!-- Navigation Arrows -->
-      <button class="scroll-nav prev" id="scrollPrev" onclick="scrollCities('left')">
-        <i class="fas fa-chevron-left"></i>
-      </button>
-      <button class="scroll-nav next" id="scrollNext" onclick="scrollCities('right')">
-        <i class="fas fa-chevron-right"></i>
-      </button>
+    <!-- (DIUPDATE) Menggunakan grid, bukan horizontal scroll -->
+    <div class="cities-grid" id="citiesGrid">
       
-      <!-- Cities Grid Horizontal -->
-      <div class="cities-grid" id="citiesGrid">
-        <!-- Baris 1 -->
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Aceh</span>
+      <?php foreach ($service_areas as $city): ?>
+      <div class="city-card">
+        <!-- (DIUPDATE) Menyamakan struktur HTML card -->
+        <div class="city-icon-wrapper">
+          <i class="fas fa-map-marker-alt"></i>
         </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Ambon</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Atambua</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Bacan</span>
-        </div>
-        
-        <!-- Baris 2 -->
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Bima</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Bintan</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Bontang</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Bulukumba</span>
-        </div>
-        
-        <!-- Baris 3 -->
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Denpasar</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Jambi</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Kupang</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Labuan Bajo</span>
-        </div>
-        
-        <!-- Baris 4 -->
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Lampung</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Larantuka</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Lombok</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Makassar</span>
-        </div>
-        
-        <!-- Baris 5 -->
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Maumere</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Medan</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Padang</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Palu</span>
-        </div>
-        
-        <!-- Baris 6 -->
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Panajam</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Pekan Baru</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Polewali</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Ruteng</span>
-        </div>
-        
-        <!-- Baris 7 -->
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Samarinda</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Sorong</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Ternate</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Waikabubak</span>
-        </div>
-        
-        <!-- Baris 8 -->
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Waikelo</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Waingapu</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Watampone</span>
-        </div>
-        <div class="city-card">
-          <i class="fas fa-map-marker-alt city-icon"></i>
-          <span class="city-name">Weda</span>
-        </div>
+        <span class="city-name"><?php echo htmlspecialchars($city); ?></span>
       </div>
+      <?php endforeach; ?>
+
     </div>
   </div>
 </section>
